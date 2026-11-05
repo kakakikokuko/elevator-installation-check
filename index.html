@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ko">
-<head>
+<head><meta name="dashboard-version" content="1823d9514ef9f16b"><script>(()=>{'use strict';const meta=document.querySelector('meta[name="dashboard-version"]');if(!meta)return;const current=meta.content;let checking=false,lastCheck=0;async function check(){if(checking||document.visibilityState==='hidden'||Date.now()-lastCheck<30000)return;checking=true;lastCheck=Date.now();try{const url=new URL('version.json',document.baseURI);url.searchParams.set('_',String(Date.now()));const response=await fetch(url.href,{cache:'no-store',credentials:'same-origin'});if(!response.ok)return;const latest=(await response.json()).version;if(typeof latest==='string'&&latest&&latest!==current){const target=new URL(location.href);if(target.searchParams.get('dashboardVersion')===latest)return;target.searchParams.set('dashboardVersion',latest);target.searchParams.delete('_');location.replace(target.href)}}catch(error){console.warn('대시보드 최신 버전을 확인하지 못했습니다.',error)}finally{checking=false}}window.addEventListener('pageshow',()=>setTimeout(check,500));document.addEventListener('visibilitychange',check)})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#12683d">
